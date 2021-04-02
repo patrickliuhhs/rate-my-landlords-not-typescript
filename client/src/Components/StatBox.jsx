@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
+import Rating from '@material-ui/lab/Rating';
 // import FormLabel from '@material-ui/core/FormLabel';
 // import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import RadioGroup from '@material-ui/core/RadioGroup';
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) =>
     },
     paper: {
       height: 80,
-      width: 100,
+      width: 150,
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -35,18 +36,18 @@ export default function StatBox(props) {
 
   const {
     overallRating,
-    wouldRentAgainLevel, 
-    tags, 
+    // wouldRentAgainLevel, 
+    // tags, 
     friendlinessRating, 
     communicationRating, 
     maintenanceRating,
-    transactionsIssues,
+    // transactionsIssues,
   } = props;
 
   const ratingsObj = {
     Overall: overallRating,
-    RentAgain: wouldRentAgainLevel,
     Friendliness: friendlinessRating,
+    Communication: communicationRating,
     Maintenance: maintenanceRating,
   }
 
@@ -58,9 +59,10 @@ export default function StatBox(props) {
             <Grid key={value} item>
               {/* <Paper className={classes.paper}>{ratingsObj[value]}</Paper> */}
               <Paper className={classes.paper}>
+                
                 {`${value}`}
                 <br></br>
-                {(Math.round(ratingsObj[value] * 100) / 100).toFixed(1)}
+                <Rating name="half-rating" defaultValue={(Math.round(ratingsObj[value] * 100) / 100).toFixed(1)} precision={0.5} />
               </Paper>
             </Grid>
           ))}

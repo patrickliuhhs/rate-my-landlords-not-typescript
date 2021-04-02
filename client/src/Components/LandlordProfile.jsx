@@ -5,7 +5,7 @@ import ReviewBox from './ReviewBox'
 
 // import '../Style/LandlordProfile.css';
 import { gql, useQuery } from '@apollo/client';
-import { GET_RESULTS, QueryObj, GET_ALL_LANDLORDS, IdQuery} from './Utils'
+import {GET_ALL_LANDLORDS} from './Utils'
 
 function LandLordProfile (props){
   console.log('look here for state', typeof(props.location.state), props.location.state)
@@ -18,13 +18,7 @@ function LandLordProfile (props){
 
   // console.log('landlordprofile data', data);
   // console.log('data', data);
-  /*type FullLandLordProfile {
-    LandlordStats: LandlordStats 
-    PropertyStats: PropertyStats
-    LandlordReviews: [LandlordReview]
-    PropertyReviews: [PropertyReview]
-    reviews: [reviewBody]
-  }*/
+
   const [example, setExample] = useState(
     {
       LandlordStats: {
@@ -46,19 +40,19 @@ function LandLordProfile (props){
             // wouldRentAgain: true,
             friendlinessRating: 3.0,
             communicationRating: 4.0, 
-            responsivenessRating: 3.0,
+            // responsivenessRating: 3.0,
             maintenanceRating: 4.0,
             // transactionIssues: false
           },
           propertyReview: {
             moveInDate: "2/3/19",
             moveOutDate: "9/10/19",
-            cleanliness: 3.0,
-            neighborsVibes: ["great, quiet, noisy, everything"],
-            propertyIssues: ["squeky floorsss squeek suehfnp9ieo"],
-            noiseLevelRating: 1.0,
+            // cleanliness: 3.0,
+            // neighborsVibes: ["great, quiet, noisy, everything"],
+            // propertyIssues: ["squeky floorsss squeek suehfnp9ieo"],
+            // noiseLevelRating: 1.0,
           },
-          reviewBody: 'this place sucks',
+          reviewBody: 'this landlord was horrible. he didnt allow pets so he obviously doesnt have a heart',
           user: 'user123'
         },
         {
@@ -66,19 +60,19 @@ function LandLordProfile (props){
             // wouldRentAgain: true,
             friendlinessRating: 3,
             communicationRating: 2, 
-            responsivenessRating: 3,
+            // responsivenessRating: 3,
             maintenanceRating: 4,
             // transactionIssues: true,
           },
           propertyReview: {
             moveInDate: "2/3/20",
             moveOutDate:  "9/10/20",
-            cleanliness: 4,
-            neighborsVibes: ["great, quiet, noisy, everything"],
-            propertyIssues: ["squeky floorsss squeek suehfnp9ieo"],
-            noiseLevelRating: 2,
+            // cleanliness: 4,
+            // neighborsVibes: ["great, quiet, noisy, everything"],
+            // propertyIssues: ["squeky floorsss squeek suehfnp9ieo"],
+            // noiseLevelRating: 2,
           },
-          reviewBody: 'this place rocks!!!',
+          reviewBody: 'this place rocks! i hate pets so this place worked out perfectly for me!',
           user: 'user456'
         },
       ]
@@ -93,7 +87,6 @@ function LandLordProfile (props){
       <StatBox {...example.LandlordStats} />
       <ReviewBox reviews = {example.Reviews} />
     </Container>
-
   )
 }
 
