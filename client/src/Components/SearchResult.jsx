@@ -20,7 +20,7 @@ function SearchResult(props){
     return (
       <div>
         <h1>RATE MY LANDLORD</h1><br />
-        <div>{JSON.stringify(data)}</div>
+        {/* <div>{JSON.stringify(data)}</div> */}
         <ResultsTable {...data.findLandlordsByAddress}/>
       </div>
     )
